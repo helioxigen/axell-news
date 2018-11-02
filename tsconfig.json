@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "esnext",
+        "jsx": "react",
+        "strict": false,
+        "baseUrl": "./src/",
+        "experimentalDecorators": true,
+        "plugins": [
+            {
+                "name": "typescript-styled-plugin"
+            }
+        ]
+    },
+    "include": ["./src/**/*"],
+    "exclude": ["./node_modules/**/*", "./build/**/*"]
+}
