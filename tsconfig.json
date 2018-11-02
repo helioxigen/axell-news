@@ -1,7 +1,8 @@
 {
     "compilerOptions": {
-        "target": "esnext",
-        "module": "esnext",
+        "target": "es2017",
+        "module": "commonjs",
+        "moduleResolution": "node",
         "jsx": "react",
         "strict": false,
         "baseUrl": "./src/",
@@ -13,5 +14,5 @@
         ]
     },
     "include": ["./src/**/*"],
-    "exclude": ["./node_modules/**/*", "./build/**/*"]
+    "exclude": ["./node_modules", "./build/**/*"]
 }
