@@ -16,12 +16,12 @@ const PageLayout = ({
 }: PageLayoutProps) => (
     <article>
         <Header />
-        <section uk-grid>
+        <section className="uk-grid uk-grid-collapse uk-child-width-expand@s">
             <CountrySwitcher
                 currentCode={country}
                 onCountryClick={store.changeCountry}
             />
-            {children}
+            <div className="uk-width-1-2">{children}</div>
             <CategorySwitcher
                 currentCode={category}
                 onCategoryClick={store.changeCategory}

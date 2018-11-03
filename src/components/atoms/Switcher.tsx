@@ -17,7 +17,12 @@ export default ({
         <ul className={`uk-tab-${side}`} uk-tab="animation: uk-animation-fade">
             {options.map(label => (
                 <li className={label === selected ? "uk-active" : undefined}>
-                    <a onClick={() => onChange(label)}>{label}</a>
+                    <a
+                        className={`uk-text-${side === "right" ? "left" : "right"}`}
+                        onClick={() => onChange(label)}
+                    >
+                        {label}
+                    </a>
                 </li>
             ))}
         </ul>
