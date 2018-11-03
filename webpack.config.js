@@ -8,6 +8,7 @@ const isProd = process.env.NODE_ENV === "production";
 module.exports = {
     entry: [
         path.join(__dirname, "./node_modules/uikit/dist/js/uikit.js"),
+        path.join(__dirname, "./node_modules/uikit/dist/js/uikit-icons.js"),
         path.join(__dirname, "./node_modules/uikit/dist/css/uikit.css"),
         path.join(__dirname, "./src/index.tsx")
     ],
@@ -49,7 +50,7 @@ module.exports = {
     plugins: [
         new СleanWebpackPlugin("build"),
         new HtmlWebpackPlugin({
-            title: "News",
+            title: "",
             template: "./src/assets/index.htmltpl"
         })
     ],
@@ -64,6 +65,7 @@ module.exports = {
     devServer: {
         host: "0.0.0.0",
         port: 3000,
+        historyApiFallback: true,
         contentBase: path.join(__dirname, "build/"),
         watchOptions: {
             ignored: /node_modules|build/
