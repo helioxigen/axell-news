@@ -6,7 +6,11 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const isProd = process.env.NODE_ENV === "production";
 
 module.exports = {
-    entry: path.join(__dirname, "./src/index.tsx"),
+    entry: [
+        path.join(__dirname, "./node_modules/uikit/dist/js/uikit.js"),
+        path.join(__dirname, "./node_modules/uikit/dist/css/uikit.css"),
+        path.join(__dirname, "./src/index.tsx")
+    ],
 
     optimization: {
         mergeDuplicateChunks: true,
@@ -31,6 +35,10 @@ module.exports = {
                 loader: "ts-loader"
             },
             {
+                test: /\.css$/,
+                use: ["style-loader", "css-loader"]
+            },
+            {
                 test: /\.(png|svg|gif|jpg|woff|woff2)$/,
                 exclude: /node_modules/,
                 loader: "file-loader"
@@ -47,7 +55,7 @@ module.exports = {
     ],
 
     resolve: {
-        extensions: ["*", ".js", ".ts", ".tsx"],
+        extensions: ["*", ".js", ".ts", ".tsx", ".json"],
         modules: ["node_modules", path.resolve(__dirname, "src")]
     },
 
