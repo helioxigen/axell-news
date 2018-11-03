@@ -10,7 +10,7 @@ const inst = Axios.create({
     }
 });
 
-export const getNews = (country?: string, category?: string) =>
+export const getNews = (country: string, category?: string) =>
     inst.get<TopHeadlinesResponse>("top-headlines", {
         params: {
             country,

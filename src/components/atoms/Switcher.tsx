@@ -16,7 +16,7 @@ export default ({
     <div className="uk-width-auto@m">
         <ul className={`uk-tab-${side}`} uk-tab="animation: uk-animation-fade">
             {options.map(label => (
-                <li className={label === selected ? "uk-active" : undefined}>
+                <li key={label} className={label === selected ? "uk-active" : undefined}>
                     <a
                         className={`uk-text-${side === "right" ? "left" : "right"}`}
                         onClick={() => onChange(label)}
