@@ -8,13 +8,16 @@ interface HeaderProps {
     store?: typeof store;
 }
 
-const Header = ({ store: { country, category } }: HeaderProps) => (
+const Header = ({ store: { fetchedCountry, fetchedCategory } }: HeaderProps) => (
     <header>
         <PageHeading>
-            News from <span className="uk-text-uppercase">{country}</span>
-            {category && (
+            News from <span className="uk-text-uppercase">{fetchedCountry}</span>
+            {fetchedCategory && (
                 <>
-                    and <span className="uk-text-capitalize">{category}</span>{" "}
+                    {" "}
+                    and <span className="uk-text-capitalize">
+                        {fetchedCategory}
+                    </span>{" "}
                     category
                 </>
             )}

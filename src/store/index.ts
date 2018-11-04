@@ -15,6 +15,11 @@ class Store {
     @observable
     category?: string;
 
+    @observable
+    fetchedCategory;
+    @observable
+    fetchedCountry;
+
     @action.bound
     changeCountry(code) {
         this.country = code;
@@ -34,12 +39,15 @@ class Store {
             this.errorMessage = "";
             this.fetching = true;
 
+            const category =
+                this.category !== "all" ? this.category : undefined;
+
+            this.fetchedCountry = this.country;
+            this.fetchedCategory = category;
+
             const {
                 data: { articles }
-            } = await getNews(
-                this.country,
-                this.category !== "all" ? this.category : undefined
-            );
+            } = await getNews(this.country, category);
 
             this.articles = articles;
         } catch (e) {
