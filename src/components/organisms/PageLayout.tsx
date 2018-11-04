@@ -33,7 +33,7 @@ const PageLayout = ({
                     onChange={store.changeCountry}
                 />
             </aside>
-            <div className="uk-width-1-2">
+            <div className="uk-width-1-2@m uk-width-1-1@s">
                 <NoContentWrapper
                     wrappers={[fetching && <Spinner />, errorMessage]}
                 >

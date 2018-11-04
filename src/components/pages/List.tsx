@@ -9,10 +9,7 @@ interface List {
 }
 
 const List = ({ store: { articles, fetching } }: List) => (
-    <>
-        {fetching && <Spinner />}
-        {!fetching && <ArticlesList articles={articles} />}
-    </>
+    <ArticlesList articles={articles} />
 );
 
 export default inject("store")(observer(List));
