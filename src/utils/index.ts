@@ -1,4 +1,4 @@
-const getCurrentDate = () => {
+export const getCurrentDate = () => {
     const date = new Date();
 
     return date.toLocaleDateString("en-GB", {
@@ -8,5 +8,3 @@ const getCurrentDate = () => {
         year: "numeric"
     });
 };
-
-document.title = getCurrentDate();
