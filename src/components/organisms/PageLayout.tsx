@@ -2,7 +2,6 @@ import Header from "components/molecules/Header";
 import * as React from "react";
 import { inject, observer } from "mobx-react";
 import store from "store";
-import FetchingWrapper from "components/molecules/FetchingWrapper";
 import Switcher from "components/atoms/Switcher";
 import { withRouter } from "react-router";
 import NoContentWrapper from "components/molecules/NoContentWrapper";
