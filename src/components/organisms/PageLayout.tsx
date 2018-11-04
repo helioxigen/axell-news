@@ -1,13 +1,15 @@
 import Header from "components/molecules/Header";
 import * as React from "react";
 import { inject, observer } from "mobx-react";
-import store from "store";
-import Switcher from "components/atoms/Switcher";
 import { withRouter } from "react-router";
-import NoContentWrapper from "components/molecules/NoContentWrapper";
-import Spinner from "components/atoms/Spinner";
 import { History } from "history";
+
+import Switcher from "components/atoms/Switcher";
+import Spinner from "components/atoms/Spinner";
 import ErrorPage from "components/atoms/ErrorPage";
+
+import { replaceComponent } from "utils";
+import store from "store";
 
 interface PageLayoutProps {
     children?: React.ReactNode;
@@ -35,14 +37,10 @@ const PageLayout = ({
                 />
             </aside>
             <div className="uk-width-1-2@m uk-width-1-1@s uk-margin-bottom">
-                <NoContentWrapper
-                    wrappers={[
-                        fetching && <Spinner />,
-                        errorMessage && <ErrorPage message={errorMessage} />
-                    ]}
-                >
-                    {children}
-                </NoContentWrapper>
+                {replaceComponent(
+                    fetching && <Spinner />,
+                    errorMessage && <ErrorPage message={errorMessage} />
+                )(children)}
             </div>
             <aside
                 className="uk-child-width-1-4@s uk-child-width-1-4@m"
