@@ -7,6 +7,7 @@ import { withRouter } from "react-router";
 import NoContentWrapper from "components/molecules/NoContentWrapper";
 import Spinner from "components/atoms/Spinner";
 import { History } from "history";
+import ErrorPage from "components/atoms/ErrorPage";
 
 interface PageLayoutProps {
     children?: React.ReactNode;
@@ -33,9 +34,12 @@ const PageLayout = ({
                     onChange={store.changeCountry}
                 />
             </aside>
-            <div className="uk-width-1-2@m uk-width-1-1@s">
+            <div className="uk-width-1-2@m uk-width-1-1@s uk-margin-bottom">
                 <NoContentWrapper
-                    wrappers={[fetching && <Spinner />, errorMessage]}
+                    wrappers={[
+                        fetching && <Spinner />,
+                        errorMessage && <ErrorPage message={errorMessage} />
+                    ]}
                 >
                     {children}
                 </NoContentWrapper>

@@ -51,7 +51,7 @@ class Store {
 
             this.articles = articles;
         } catch (e) {
-            console.error(e);
+            this.errorMessage = e.message
         }
 
         this.fetching = false;
