@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --mode=development",
+    "start": "serve ./build",
     "build": "webpack --mode=production",
     "test": "jest"
   },
@@ -26,6 +27,7 @@
     "react-dom": "^16.6.0",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
+    "serve": "^10.0.2",
     "styled-components": "^4.0.3",
     "uikit": "^3.0.0-rc.20"
   },
